@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 10%;
+    --foreground: 40 20% 95%;
+
+    --card: 220 18% 14%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 220 18% 12%;
+    --popover-foreground: 40 20% 95%;
+
+    --primary: 45 80% 55%;
+    --primary-foreground: 220 20% 10%;
+
+    --secondary: 160 40% 35%;
+    --secondary-foreground: 40 20% 95%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 160 50% 40%;
+    --accent-foreground: 40 20% 95%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 40 20% 95%;
+
+    --border: 220 15% 22%;
+    --input: 220 15% 22%;
+    --ring: 45 80% 55%;
+
+    --radius: 0.75rem;
+
+    /* Chess specific colors */
+    --board-light: 35 30% 75%;
+    --board-dark: 160 25% 30%;
+    --board-light-highlight: 45 60% 70%;
+    --board-dark-highlight: 160 35% 40%;
+    --move-indicator: 120 60% 45%;
+    --capture-indicator: 0 70% 50%;
+    --last-move-light: 45 50% 65%;
+    --last-move-dark: 45 40% 40%;
+    --check-indicator: 0 80% 55%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(220 20% 8%) 0%, hsl(220 25% 15%) 50%, hsl(160 20% 12%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(220 18% 16%) 0%, hsl(220 18% 12%) 100%);
+    --gradient-button: linear-gradient(135deg, hsl(45 80% 55%) 0%, hsl(40 85% 45%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(160 50% 40%) 0%, hsl(160 40% 30%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 4px 16px hsl(0 0% 0% / 0.4);
+    --shadow-lg: 0 8px 32px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 20px hsl(45 80% 55% / 0.3);
+    --shadow-board: 0 10px 40px hsl(0 0% 0% / 0.6), inset 0 1px 0 hsl(40 20% 95% / 0.05);
+
+    --sidebar-background: 220 18% 12%;
+    --sidebar-foreground: 40 20% 95%;
+    --sidebar-primary: 45 80% 55%;
+    --sidebar-primary-foreground: 220 20% 10%;
+    --sidebar-accent: 160 40% 35%;
+    --sidebar-accent-foreground: 40 20% 95%;
+    --sidebar-border: 220 15% 22%;
+    --sidebar-ring: 45 80% 55%;
+  }
+
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 40 20% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--gradient-hero);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-button);
+  }
+
+  .glass {
+    @apply backdrop-blur-xl;
+    background: hsl(var(--card) / 0.8);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .board-shadow {
+    box-shadow: var(--shadow-board);
+  }
+
+  .glow {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+/* Chess piece animations */
+@keyframes piece-drop {
+  0% {
+    transform: translateY(-20px) scale(1.1);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(2px) scale(1);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes piece-capture {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-piece-drop {
+  animation: piece-drop 0.3s ease-out forwards;
+}
+
+.animate-piece-capture {
+  animation: piece-capture 0.2s ease-out forwards;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 1.5s ease-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.3), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
