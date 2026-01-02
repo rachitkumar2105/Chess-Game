@@ -1,73 +1,77 @@
-# Welcome to your Lovable project
+# Chess Game
 
-## Project info
+A modern, interactive Chess game application built with React, TypeScript, and Vite. This project features a sleek user interface designed with Tailwind CSS and Shadcn UI, providing a smooth and responsive gaming experience.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🚀 Features
 
-## How can I edit this code?
+- **Interactive Chess Board**: Fully functional chess board with drag-and-drop or click-to-move support (powered by `chess.js`).
+- **Move Validation**: Real-time legal move calculation and validation.
+- **Game States**: Handles check, checkmate, stalemate, and draw conditions.
+- **Modern UI**: Polished interface using Shadcn UI components and Tailwind CSS.
+- **Responsive**: mobile-friendly design.
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack
 
-**Use Lovable**
+- **Framework**: [React](https://react.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components**: [Shadcn UI](https://ui.shadcn.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Chess Logic**: [chess.js](https://github.com/jhlywa/chess.js)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 📦 Installation & Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+Follow these steps to set up the project locally.
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Ensure you have Node.js installed on your machine.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Installation
 
-Follow these steps:
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd "Chess Game"
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   bun install
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3. **Start the development server**
+   ```bash
+   npm run dev
+   # or
+   bun dev
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+4. **Open in Browser**
+   Navigate to `http://localhost:8080` (or the port shown in your terminal) to view the application.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+## 📂 Project Structure
+
+```
+src/
+├── components/
+│   ├── chess/          # Chess-specific components (Board, Pieces, etc.)
+│   └── ui/             # Reusable UI components (Buttons, Dialogs, etc.)
+├── hooks/              # Custom React hooks
+├── lib/                # Utility functions and configurations
+├── pages/              # Application pages/routes
+├── App.tsx             # Main application component
+└── main.tsx            # Entry point
 ```
 
-**Edit a file directly in GitHub**
+## 🤝 Contributing
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-**Use GitHub Codespaces**
+## 📄 License
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This project is open source and available under the [MIT License](LICENSE).
